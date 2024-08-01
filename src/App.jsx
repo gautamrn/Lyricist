@@ -1,22 +1,25 @@
-import React from 'react'
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/setup/Navbar';
 import Index from './components/setup/Index';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { Provider } from './context';
 
 function App() {
   return (
-    <Router>
-    <div className="App">
-      <Navbar />
-      <div className='container'>
-        <Switch>
-          <Route path = '/' component = {Index} />
-        </Switch>
-      </div>
-    </div>
-    </Router>
+    <Provider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className='container'>
+            <Routes>
+              <Route path="/" element={<Index />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
