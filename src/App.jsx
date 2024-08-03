@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/setup/Navbar';
 import Index from './components/setup/Index';
-import { Provider } from './context';
+import { Provider } from './Context';
 
 function App() {
   return (
