@@ -1,23 +1,24 @@
-import React, { Component } from 'react'
-import { Consumer } from '../../Context';
-import Loading from '../setup/Loading';
+import React, { useContext, useEffect } from 'react';
+import { SongContext } from '../../Context';
 
-class Songs extends Component {
-  render() {
-    return (
-      <Consumer>
-        {value => {
-          const { songList } = value;
+const Songs = () => {
+  const { songs, loading, fetchSongs } = useContext(SongContext);
 
-          if(songList === undefined || songList.length === 0){
-            return <Loading />
-          } else {
-            return <h1>Songs</h1>
-          }
-        }}
-      </Consumer>
-    );
+  useEffect(() => {
+    fetchSongs();
+  }, [fetchSongs]);
+
+  if (loading) {
+    return <div>Loading...</div>;
   }
-}
+
+  return (
+    <div>
+      {songs.map((song) => (
+        <div key={song.track.track_id}>{song.track.track_name}</div>
+      ))}
+    </div>
+  );
+};
 
 export default Songs;
