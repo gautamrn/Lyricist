@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import { Consumer } from '../../Context';
-//import Loading from '../setup/Loading';
+import Loading from '../setup/Loading';
 
 class Songs extends Component {
   render() {
     return (
       <Consumer>
         {value => {
-          console.log(value);
-          return<h1>TRacks</h1>
+          
+          const {track_list} = value;
+
+          if(track_list === undefined || track_list.length === 0){
+            return <Loading />
+          } else{
+            return <h1>Songs</h1>
+          }
         }}
       </Consumer>
     );
