@@ -5,8 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import Moment from 'react-moment';
 
 function Lyrics() {
-  const { id } = useParams(); // Access the 'id' route parameter
-
+  const { id } = useParams();
   const [track, setTrack] = useState({});
   const [lyrics, setLyrics] = useState({});
 
@@ -26,8 +25,8 @@ function Lyrics() {
         setTrack(res.data.message.body.track);
       })
       .catch((err) => console.log(err));
-  }, [id]); // Dependency array with 'id'
-
+  }, [id]);
+  
   if (!track || Object.keys(track).length === 0 || !lyrics || Object.keys(lyrics).length === 0) {
     return <Loading />;
   } else {
