@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/setup/Navbar';
@@ -12,9 +11,9 @@ function App() {
   return (
     <Provider>
       <Router>
-        <div className="App">
+        <div className="App bg-zinc-600 text-white min-h-screen">
           <Navbar />
-          <div className='container'>
+          <div className='container mx-auto px-4 py-6'>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/lyrics/track/:id" element={<Lyrics />} />

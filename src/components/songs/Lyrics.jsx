@@ -31,27 +31,27 @@ function Lyrics() {
     return <Loading />;
   } else {
     return (
-      <div>
-        <Link to="/" className="btn btn-dark btn-sm mb-4">
+      <div className="p-6 bg-black text-white rounded-md shadow-custom">
+        <Link to="/" className="text-white bg-gray-custom hover:bg-light-blue p-2 rounded-md mb-4 inline-block">
           Back
         </Link>
-        <div className='card'>
-            <h5 className="card-header">
-            {track.track_name} by <span className="text-secondary">{track.artist_name}</span>
+        <div className='bg-gray-custom rounded-md shadow-custom p-4'>
+            <h5 className="text-2xl font-bold mb-4">
+              {track.track_name} by <span className="text-light-gray">{track.artist_name}</span>
             </h5>
-            <div className='card-body'>
-                <p className='card-text'>{lyrics.lyrics_body}</p>
+            <div className='text-lg'>
+                <p className='whitespace-pre-wrap'>{lyrics.lyrics_body}</p>
             </div>
         </div>
-        <ul className='list-group mt-3'>
-            <li className='list-group-item'>
+        <ul className='mt-4 space-y-2'>
+            <li className='bg-gray-custom p-2 rounded-md'>
                 <strong>Genre: </strong>{track.primary_genres.music_genre_list[0].music_genre.music_genre_name}
             </li>
-            <li className='list-group-item'>
+            <li className='bg-gray-custom p-2 rounded-md'>
               <strong>Explicit?: </strong>
               {track.explicit === 0 ? "No" : "Yes"}
             </li>
-            <li className='list-group-item'>
+            <li className='bg-gray-custom p-2 rounded-md'>
               <strong>Release Date: </strong>
               <Moment format='MM/DD/YYYY'>{track.first_release_date}</Moment>
             </li>
